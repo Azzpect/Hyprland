@@ -11,5 +11,4 @@ size = 11
 family = "MesloLGS NF"
 style = "bold"
 
-[shell]
-program = "zsh"
+

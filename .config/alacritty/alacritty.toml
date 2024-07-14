@@ -11,4 +11,8 @@ size = 10
 family = "Maple Mono"
 style = "bold"
 
+[window.padding]
+x = 5
+
+
 

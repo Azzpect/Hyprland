@@ -28,4 +28,12 @@ yay -S tmux
 echo "installing tpm"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+
+#setting up rofi app launcher
+yay -S rofi-lbonn-wayland-git
+
+#setting up screen sharing
+echo "downloading resources to enable screen sharing"
+yay -S xdg-desktop-portal-hyprland-git
+
 #move the .xinitrc file

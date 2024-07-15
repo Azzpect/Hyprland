@@ -1,0 +1,15 @@
+    --language servers
+    'lua-language-server',
+    'typescript-language-server',
+    'html-lsp',
+    'css-lsp',
+    'pyright',
+    'prisma-language-server',
+    'prisma-language-server',
+    'jdtls',
+    --formatters
+    'stylua',
+    'isort',
+    'black',
+    'prettier'
+

@@ -1,3 +1,4 @@
+@import "~/.config/rofi/colors.rasi"
 configuration {
 /*	modes: "window,drun,run,ssh";*/
 font: "Maple Mono 12";

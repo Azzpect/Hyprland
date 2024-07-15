@@ -5,7 +5,6 @@ cd ~/.yay
 echo "building yay from source"
 makepkg -si
 
-
 echo "updating aur"
 sudo pacman -Syu
 
@@ -36,4 +35,6 @@ yay -S rofi-lbonn-wayland-git
 echo "downloading resources to enable screen sharing"
 yay -S xdg-desktop-portal-hyprland-git
 
-#move the .xinitrc file
+#setting wallpaper engines
+yay -S hyprpaper python-pywal
+

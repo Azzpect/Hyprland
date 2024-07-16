@@ -2,8 +2,8 @@
 
 file_path=$(zenity --file-selection --title="Select a wallpaper" --filename="~/.config/wallpapers/")
 
+hyprctl hyprpaper unload all
 wal -i "$file_path"
-
 hyprctl hyprpaper preload "$file_path"
 hyprctl hyprpaper wallpaper ",$file_path"
 

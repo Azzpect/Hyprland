@@ -1,6 +1,5 @@
-@import "~/.cache/wal/colors-rofi-light"
-
+@import "~/.config/rofi/colors-rofi.rasi"
 element-text {
- background-color: inherit;
- text-color: inherit;
+background-color: inherit;
+text-color: inherit;
 }

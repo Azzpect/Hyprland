@@ -37,4 +37,8 @@ yay -S xdg-desktop-portal-hyprland-git
 
 #setting wallpaper engines
 yay -S hyprpaper python-pywal
+echo "giving permission to the wallpaper engines"
+chmod +x ~/.config/hypr/startup.sh
+chmod +x ~/.config/wallpapers/setWal.sh
+
 

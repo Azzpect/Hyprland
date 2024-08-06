@@ -1,0 +1,14 @@
+// -*- mode: jsonc -*-
+{
+  "layer": "top", // Waybar at top layer
+  // "position": "bottom", // Waybar position (top|bottom|left|right)
+  "height": 16,
+  "spacing": 0,
+  "margin": 0,
+
+  // Choose the order of the modules
+  "include": ["~/.config/waybar/modules.json"],
+  "modules-left": ["custom/appmenu","wlr/taskbar", "custom/youtube"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["pulseaudio", "network", "clock", "tray", "custom/powermenu"],
+}

@@ -9,7 +9,7 @@ echo "updating aur"
 sudo pacman -Syu
 
 echo "downloading hyprland, sddm, dolphing waybar, alcritty, neovim, pipewire, wireplumber, pipewire-pulse, pavucontrol" 
-yay -S hyprland-git sddm firefox dolphin waybar alacritty neovim pipewire wireplumber pipewire-pulse pavucontrol stow neofetch
+yay -S hyprland-git sddm firefox dolphin alacritty neovim pipewire wireplumber pipewire-pulse pavucontrol stow neofetch
 
 #setting up zsh
 yay -S zsh
@@ -41,4 +41,13 @@ echo "giving permission to the wallpaper engines"
 chmod +x ~/.config/hypr/startup.sh
 chmod +x ~/.config/wallpapers/setWal.sh
 
+#setting waybar
+echo "setting waybar"
+yay -S waybar
+chmod +x ~/.config/hypr/restartWaybar.sh
 
+#setting cursor theme
+yay -S rose-pine-hyprcursor
+
+#setting up sddm theme
+yay -S sddm-sugar-dark

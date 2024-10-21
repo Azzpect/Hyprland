@@ -1,22 +1,19 @@
-#!/bin/bash
-
-file_path=$(zenity --file-selection --title="Select a wallpaper" --filename="~/.config/wallpapers/")
-conf=~/.config/wallpapers/wallpaper.conf
-
-swaybg -i "$file_path" &
+conf=/home/azzpect/.config/wallpapers/wallpaper.conf
+wallpaper=$(sed -n 's/wallpaper=\(.*\)/\1/p' "$conf")
+swaybg -i "$wallpaper" &
 $SWAY_PID=$!
 sleep 1
 kill $SWAY_PID
 
 echo "hello"
 echo "generating color schemas"
-wal -i "$file_path"
+wal -i "$wallpaper"
 
 # Clear previous wallpaper settings
 sed -i '/wallpaper=/d' "$conf"
 
-echo "wallpaper=$file_path" >> "$conf"
-echo "wallpaper=$file_path"
+echo "wallpaper=$wallpaper" >> "$conf"
+echo "wallpaper=$wallpaper"
 
 echo "creating rofi color schema file if not existed"
 if [ ! -e "~/.config/rofi/colors.rasi" ]; then

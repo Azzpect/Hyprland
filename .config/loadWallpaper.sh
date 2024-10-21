@@ -1,0 +1,1 @@
+hypr/loadWallpaper.sh

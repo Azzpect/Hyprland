@@ -9,7 +9,7 @@ echo "updating aur"
 sudo pacman -Syu
 
 echo "downloading hyprland, sddm, dolphing waybar, alcritty, neovim, pipewire, wireplumber, pipewire-pulse, pavucontrol" 
-yay -S hyprland-git sddm firefox dolphin alacritty neovim pipewire wireplumber pipewire-pulse pavucontrol stow neofetch
+yay -S hyprland-git sddm firefox dolphin alacritty neovim pipewire wireplumber pipewire-pulse pavucontrol stow neofetch steam vesktop-bin
 
 #setting up zsh
 yay -S zsh
@@ -33,7 +33,7 @@ yay -S rofi-lbonn-wayland-git
 
 #setting up screen sharing
 echo "downloading resources to enable screen sharing"
-yay -S xdg-desktop-portal-hyprland-git
+yay -S xdg-desktop-portal-hyprland-git grim slurp 
 
 #setting wallpaper engines
 yay -S hyprpaper python-pywal zenity
@@ -51,3 +51,5 @@ yay -S rose-pine-hyprcursor
 
 #setting up sddm theme
 yay -S sddm-sugar-dark
+sudo systemctl enable sddm
+reboot

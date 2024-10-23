@@ -25,15 +25,15 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 echo "installing tpm"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+cd ~/Hyprland
+stow . --adopt
 
 #setting wallpaper engines
 echo "giving permission to the wallpaper engines"
-chmod +x ~/.config/hypr/startup.sh
+chmod +x ~/.config/hypr/loadWallpaper.sh
+chmod +x ~/.config/hypr/restartWaybar.sh
 chmod +x ~/.config/wallpapers/setWal.sh
 
-#setting waybar
-echo "setting waybar"
-chmod +x ~/.config/hypr/restartWaybar.sh
 
 sudo systemctl enable sddm
 reboot

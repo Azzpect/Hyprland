@@ -9,47 +9,31 @@ echo "updating aur"
 sudo pacman -Syu
 
 echo "downloading hyprland, sddm, dolphing waybar, alcritty, neovim, pipewire, wireplumber, pipewire-pulse, pavucontrol" 
-yay -S hyprland-git sddm firefox dolphin alacritty neovim pipewire wireplumber pipewire-pulse pavucontrol stow neofetch steam vesktop-bin
+yay -S hyprland-git sddm firefox dolphin alacritty neovim pipewire wireplumber pipewire-pulse pavucontrol stow neofetch zsh tmux rofi-lbonn-wayland-git sddm-sugar-dark hyprpaper python-pywal zenity waybar rose-pine-hyprcursor
 
 #setting up zsh
-yay -S zsh
+
 echo "installing oh my zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo "cloning powerlevel10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 echo "cloning zsh autosuggestiong"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-rm ~/.zshrc
 
 
 #setting up tmux
-yay -S tmux
 echo "installing tpm"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 
-#setting up rofi app launcher
-yay -S rofi-lbonn-wayland-git
-
-#setting up screen sharing
-echo "downloading resources to enable screen sharing"
-yay -S xdg-desktop-portal-hyprland-git grim slurp 
-
 #setting wallpaper engines
-yay -S hyprpaper python-pywal zenity
 echo "giving permission to the wallpaper engines"
 chmod +x ~/.config/hypr/startup.sh
 chmod +x ~/.config/wallpapers/setWal.sh
 
 #setting waybar
 echo "setting waybar"
-yay -S waybar
 chmod +x ~/.config/hypr/restartWaybar.sh
 
-#setting cursor theme
-yay -S rose-pine-hyprcursor
-
-#setting up sddm theme
-yay -S sddm-sugar-dark
 sudo systemctl enable sddm
 reboot

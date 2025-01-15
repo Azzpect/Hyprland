@@ -5,11 +5,15 @@ cd ~/.yay
 echo "building yay from source"
 makepkg -si
 
+sleep 1
+
 echo "updating aur"
 sudo pacman -Syu
 
 echo "downloading hyprland, sddm, dolphing waybar, alcritty, neovim, pipewire, wireplumber, pipewire-pulse, pavucontrol" 
-yay -S hyprland-git sddm firefox dolphin alacritty neovim pipewire wireplumber pipewire-pulse pavucontrol stow neofetch zsh tmux rofi-lbonn-wayland-git sddm-sugar-dark hyprpaper python-pywal zenity waybar rose-pine-hyprcursor
+yay -S hyprland-git 
+
+yay -S sddm firefox dolphin alacritty neovim pipewire wireplumber pipewire-pulse pavucontrol stow neofetch zsh tmux rofi-lbonn-wayland-git sddm-sugar-dark hyprpaper-git python-pywal zenity waybar rose-pine-hyprcursor
 
 #setting up zsh
 
@@ -26,7 +30,7 @@ echo "installing tpm"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 cd ~/Hyprland
-stow . --adopt
+stow .
 
 #setting wallpaper engines
 echo "giving permission to the wallpaper engines"

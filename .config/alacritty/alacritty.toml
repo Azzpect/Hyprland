@@ -1,6 +1,3 @@
-import = [
-  "~/.config/alacritty/catppuccin-macchiato.toml"
-]
 [env]
 TERM = "xterm-256color"
 
@@ -13,6 +10,11 @@ style = "bold"
 
 [window.padding]
 x = 5
+
+[general]
+import = [
+  "~/.config/alacritty/catppuccin-macchiato.toml"
+]
 
 
 

@@ -73,11 +73,6 @@
     "on-click": "wlogout",
     "tooltip": false
   },
-  "custom/youtube": {
-    "format": "",
-    "on-click": "firefox youtube.com",
-    "tooltip": false
-  },
   "custom/media": {
     "format": "{icon} {}",
     "return-type": "json",

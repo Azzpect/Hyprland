@@ -15,6 +15,8 @@ yay -S hyprland-git
 
 yay -S sddm firefox dolphin alacritty neovim pipewire wireplumber pipewire-pulse pavucontrol stow neofetch zsh tmux rofi-lbonn-wayland-git sddm-sugar-dark hyprpaper-git python-pywal zenity waybar rose-pine-hyprcursor
 
+#setting up hyprpaper as user service
+systemctl --user enable --now hyprpaper.service
 #setting up zsh
 
 echo "installing oh my zsh"

@@ -13,7 +13,7 @@ sudo pacman -Syu
 echo "downloading hyprland, sddm, dolphing waybar, alcritty, neovim, pipewire, wireplumber, pipewire-pulse, pavucontrol" 
 yay -S hyprland-git 
 
-yay -S sddm firefox dolphin alacritty neovim pipewire wireplumber pipewire-pulse pavucontrol stow neofetch zsh tmux rofi-lbonn-wayland-git sddm-sugar-dark hyprpaper-git python-pywal zenity waybar rose-pine-hyprcursor wl-clipboard
+yay -S sddm firefox dolphin alacritty neovim pipewire wireplumber pipewire-pulse pavucontrol xdg-desktop-portal-hyprland-git stow neofetch zsh tmux rofi-lbonn-wayland-git sddm-sugar-dark hyprpaper-git python-pywal zenity waybar rose-pine-hyprcursor wl-clipboard
 
 #setting up hyprpaper as user service
 systemctl --user enable --now hyprpaper.service

@@ -32,7 +32,7 @@ echo "installing tpm"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 cd ~/Hyprland
-stow .
+stow . --adopt
 
 #setting wallpaper engines
 echo "giving permission to the wallpaper engines"

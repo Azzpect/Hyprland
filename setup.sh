@@ -17,15 +17,6 @@ yay -S sddm firefox dolphin alacritty neovim pipewire wireplumber pipewire-pulse
 
 #setting up hyprpaper as user service
 systemctl --user enable --now hyprpaper.service
-#setting up zsh
-
-echo "installing oh my zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-echo "cloning powerlevel10k"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-echo "cloning zsh autosuggestiong"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
 
 #setting up tmux
 echo "installing tpm"
@@ -42,4 +33,14 @@ chmod +x ~/.config/wallpapers/setWal.sh
 
 
 sudo systemctl enable sddm
-reboot
+
+
+#setting up zsh
+echo "installing oh my zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+echo "cloning powerlevel10k"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+echo "cloning zsh autosuggestiong"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+echo "reboot the system now to take effect"

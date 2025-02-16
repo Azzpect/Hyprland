@@ -1,3 +1,6 @@
+echo "copying pacman config file"
+sudo cp ~/Hyprland/pacman.conf /etc/
+
 echo "Cloning yay repository to ~/.yay"
 git clone https://aur.archlinux.org/yay.git ~/.yay
 
@@ -32,6 +35,9 @@ chmod +x ~/.config/hypr/restartWaybar.sh
 chmod +x ~/.config/wallpapers/setWal.sh
 
 
+echo "setting up sddm"
+sudo pacman -Syu qt6-svg qt6-declarative qt5-quickcontrols2
+yay -S catppuccin-sddm-theme-macchiato 
 sudo systemctl enable sddm
 
 

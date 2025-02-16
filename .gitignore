@@ -1,0 +1,5 @@
+.local/state
+.local/share/nvim
+.local/share/hyprland
+.local/share/sddm
+.local/share/recently-used.xbel

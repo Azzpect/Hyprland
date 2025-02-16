@@ -22,11 +22,11 @@ fi
 
 echo "copying color schemas"
 cp ~/.cache/wal/sequences ~/.config/colors/
-cp ~/.cache/wal/colors-rofi-light.rasi ~/.config/colors/
+cp ~/.cache/wal/colors-rofi-dark.rasi ~/.config/colors/
 cp ~/.cache/wal/colors-waybar.css ~/.config/colors/
 
 echo "generating rofi color template"
-printf "@import \"~/.config/colors/colors-rofi-light\"\nelement-text {\nbackground-color: inherit;\ntext-color: inherit;\n}" > ~/.config/rofi/colors.rasi
+printf "@import \"~/.config/colors/colors-rofi-dark\"\n@import \"~/.config/rofi/rofi.rasi\"\nelement-text {\nbackground-color: inherit;\ntext-color: inherit;\n}" > ~/.config/rofi/colors.rasi
 
 ~/.config/hypr/restartWaybar.sh
 killall hyprpaper

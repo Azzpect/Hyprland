@@ -3,4 +3,8 @@
 .local/share/hyprland
 .local/share/sddm
 .local/share/Trash
+.local/share/applications
+.local/share/gvfs*
+.local/share/mime
+.local/share/spotify-launcher
 *.xbel*

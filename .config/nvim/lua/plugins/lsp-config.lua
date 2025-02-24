@@ -45,6 +45,9 @@ return{
      lspconfig.jdtls.setup({
         capabilities = capabilities
       })
+      lspconfig.clangd.setup({
+        capabilities = capabilities
+      })
 
 
 

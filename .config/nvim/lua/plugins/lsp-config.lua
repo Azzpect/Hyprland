@@ -48,6 +48,10 @@ return{
       lspconfig.clangd.setup({
         capabilities = capabilities
       })
+      lspconfig.gopls.setup({
+        capabilities = capabilities
+      })
+
 
 
 

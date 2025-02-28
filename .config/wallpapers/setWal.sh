@@ -1,12 +1,11 @@
 #!/bin/bash
 
 file_path=$(zenity --file-selection --title="Select a wallpaper" --filename="~/.config/wallpapers/")
+echo "file path: $file_path"
+if [ "$file_path" = "" ]; then
+  exit 1
+fi
 conf=~/.config/hypr/hyprpaper.conf
-
-#swaybg -i "$file_path" &
-#$SWAY_PID=$!
-#sleep 1
-#kill $SWAY_PID
 
 echo "generating color schemas"
 wal -i "$file_path"
@@ -15,7 +14,6 @@ wal -i "$file_path"
 echo -e "preload=$file_path\nwallpaper=DP-1,$file_path" > "$conf"
 echo "wallpaper=$file_path"
 
-echo "creating rofi color schema file if not existed"
 if [ ! -e "~/.config/rofi/colors.rasi" ]; then
   touch ~/.config/rofi/colors.rasi
 fi

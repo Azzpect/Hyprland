@@ -11,7 +11,7 @@ echo "generating color schemas"
 wal -i "$file_path"
 
 
-echo -e "preload=$file_path\nwallpaper=DP-1,$file_path" > "$conf"
+echo -e "preload=$file_path\nwallpaper=,$file_path" > "$conf"
 echo "wallpaper=$file_path"
 
 if [ ! -e "~/.config/rofi/colors.rasi" ]; then

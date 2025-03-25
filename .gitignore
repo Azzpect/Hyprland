@@ -6,5 +6,7 @@
 .local/share/applications
 .local/share/gvfs*
 .local/share/mime
+.local/share/godot
+.local/share/vulkan
 .local/share/spotify-launcher
 *.xbel*

@@ -9,6 +9,7 @@ return {
         null_ls.builtins.formatting.rubocop,
         null_ls.builtins.formatting.google_java_format,
         null_ls.builtins.diagnostics.rubocop,
+        null_ls.builtins.formatting.sql_formatter.with { command = { "sleek" } },
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.isort,
         null_ls.builtins.formatting.black,

@@ -51,6 +51,13 @@ return{
       lspconfig.gopls.setup({
         capabilities = capabilities
       })
+      lspconfig.sqls.setup({
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          client.server_capabilities.documentFormattingProvider = false
+        end
+      })
+
 
 
 

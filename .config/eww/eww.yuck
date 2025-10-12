@@ -1,0 +1,50 @@
+(defvar eww "$HOME/eww/target/release/eww")
+
+(include "./widgets/audio/audio.yuck")
+(include "./widgets/network/network.yuck")
+
+(defwindow powermenu
+  :monitor 0
+  :exclusive true
+  :focusable false
+  :stacking "bottom"
+  :geometry (geometry
+              :y "5px"
+              :width "80%"
+              :height "30px"
+              :anchor "top center"
+            )
+(container)
+)
+
+
+(defwidget container []
+  (box
+    :halign "end"
+    :hexpand true
+    :vexpand true
+    (left_panel)
+  )
+)
+
+(defwidget left_panel []
+  (box
+    :orientation "horizontal"
+    :spacing 8
+    :halign "start"
+    :hexpand false
+    :space-evenly false   
+    (network)
+    (audio)
+    (label :class "sep" :text "|")
+    (label :class "clock" :text time)
+  )
+)
+
+
+
+;; clock module
+
+(defpoll time :interval "1s"
+  `date +"%H:%M:%S"`
+)

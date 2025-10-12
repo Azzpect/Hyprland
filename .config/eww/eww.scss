@@ -1,0 +1,36 @@
+@import "../colors/colors.scss";
+@import "./widgets/audio/audio.scss";
+@import "./widgets/network/network.scss";
+
+* {
+  all: unset;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-weight: bold;
+  font-size: 12px;
+  color: $foreground;
+}
+.powermenu {
+  background-color: $background;
+  border-radius: 18px;
+}
+
+.clock {
+  padding-right: 10px
+}
+
+// slider styles
+trough {
+  all: unset;
+  background-color: $foreground;
+  border-radius: 13px;
+  min-height: 8px;
+}
+
+highlight {
+  background-color: $color1;
+  border-radius: 13px;
+}
+
+
+
+

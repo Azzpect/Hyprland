@@ -1,0 +1,52 @@
+(defvar showCon false)
+
+(defpoll conType :interval "5s"
+  "./scripts/network.sh getConType"
+)
+
+(defpoll conName :interval "5s"
+  "./scripts/network.sh getConName"
+)
+
+
+
+(defwidget network []
+  (eventbox
+    :onhover "${eww} update showCon=true"
+    :onhoverlost "${eww} update showCon=false"
+    (button
+      :onclick "${eww} open network_popup --toggle"
+      (box
+        :space-evenly false
+        :spacing 5
+        (label :text conType) 
+        (revealer
+          :transition "slideleft"
+          :reveal showCon
+          :duration "300ms"
+          (label :text conName)
+        )
+      )
+    )
+  )
+)
+
+(defwindow network_popup
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry
+    :y "15px"
+    :x "10%"
+    :width "15%"
+    :height "15%"
+    :anchor "top right"
+  )
+  (network_popup_items)
+)
+
+(defwidget network_popup_items []
+  (eventbox
+    :onhoverlost "${eww} open network_popup --toggle"
+    "Hello world"
+  )
+)

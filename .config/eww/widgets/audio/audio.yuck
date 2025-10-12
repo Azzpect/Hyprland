@@ -1,0 +1,69 @@
+(defwidget audio []
+  (button
+    :class "audio-btn"
+    :onclick "${eww} open audio_popup --toggle"
+    "♪"
+  )
+)
+
+(defwindow audio_popup
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry
+    :y "15px"
+    :x "8%"
+    :width "250px"
+    :height "10%"
+    :anchor "top right"
+  )
+  (audio_popup_items)
+)
+
+(defpoll volume :interval "5s" 
+  "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print ($2 * 100)}'"
+)
+(defpoll mic :interval "5s" 
+  "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print ($2 * 100)}'"
+)
+
+(defwidget audio_popup_items []
+  (eventbox
+    :onhoverlost "${eww} open audio_popup --toggle"
+    (box
+      :orientation "vertical"
+      :space-evenly false
+      :spacing 8
+      (label :class "audio-popup-heading" :text "Pipewire")
+      (box
+        :orientation "horizontal"
+        :halign "start"
+        (label :class "audio-popup-text" :text "🕪")
+        (scale
+          :min 0
+          :max 200
+          :value volume
+          :step 1
+          :width 150
+          :class "volume-slider"
+          :tooltip "${volume}%"
+          :onchange "~/.config/eww/scripts/set_volume.sh set_output_volume {}"
+        )
+      )
+      (box
+        :orientation "horizontal"
+        :halign "start"
+        (label :class "audio-popup-text" :text "")
+        (scale
+          :min 0
+          :max 200
+          :value mic
+          :step 1
+          :width 150
+          :class "volume-slider"
+          :tooltip "${mic}%"
+          :onchange "~/.config/eww/scripts/set_volume.sh set_mic_volume {}"
+        )
+      )
+    ) 
+  )
+)

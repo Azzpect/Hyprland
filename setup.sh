@@ -25,14 +25,26 @@ systemctl --user enable --now hyprpaper.service
 echo "installing tpm"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+#setting up eww
+echo "installing rustup"
+yay -S rustup
+rustup default stable
+cd ~
+echo "cloning eww repo"
+git clone https://github.com/elkowar/eww
+cd ~/eww
+echo "building eww"
+cargo build --release --no-default-features --features=wayland
+
 cd ~/Hyprland
 stow . --adopt
 
-#setting wallpaper engines
-echo "giving permission to the wallpaper engines"
+#setting script permissions
+echo "giving permission to scripts"
 chmod +x ~/.config/hypr/loadWallpaper.sh
-chmod +x ~/.config/hypr/restartWaybar.sh
 chmod +x ~/.config/wallpapers/setWal.sh
+chmod +x ~/.config/wallpapers/setWal.sh
+sudo -R +x ~/.config/eww/scripts
 
 
 echo "setting up sddm"

@@ -1,12 +1,19 @@
 (defvar showCon false)
 
-(defpoll conType :interval "5s"
-  "./scripts/network.sh getConType"
+(defpoll wifiName :interval "1s"
+  "./scripts/network.sh getWifiConName"
 )
+(defpoll ethStatus :interval "1s"
+  "./scripts/network.sh getConStatus ethernet"
+)
+(defpoll wifiStatus :interval "1s"
+  "./scripts/network.sh getConStatus wifi"
+)
+(defpoll wifiList :interval "30s"
+  "./scripts/network.sh getWifiList"
+)
+(defvar connectingTo "")
 
-(defpoll conName :interval "5s"
-  "./scripts/network.sh getConName"
-)
 
 
 
@@ -19,12 +26,12 @@
       (box
         :space-evenly false
         :spacing 5
-        (label :text conType) 
+        (label :text {ethStatus == "connected"? " " : wifiStatus == "connected" ? " " : " ⃠ "}) 
         (revealer
           :transition "slideleft"
           :reveal showCon
           :duration "300ms"
-          (label :text conName)
+          (label :text {ethStatus == "connected"? "Ethernet" : wifiStatus == "connected" ? wifiName : "Disconnected"})
         )
       )
     )
@@ -47,6 +54,73 @@
 (defwidget network_popup_items []
   (eventbox
     :onhoverlost "${eww} open network_popup --toggle"
-    "Hello world"
+    (box
+      :orientation "vertical"
+      :space-evenly false
+      :spacing 5 
+      (label :class "network-popup-heading" :text "NetworkManager")
+      (box
+        (label :class "network-popup-subheading" :text "  Ethernet")
+        (button
+          :onclick {ethStatus == "connected" ? "./scripts/network.sh ethDisconnect" : "./scripts/network.sh ethConnect"}
+          (label :class "btn-text" :text {ethStatus == "connected" ? "Disconnect" : "Connect"})
+        )
+      )
+      (box
+        :orientation "vertical"
+        :spacing 10
+        :class "wifi-list-container"
+        (label :class "network-popup-subheading" :text "  WIFI")
+        (for wifi in wifiList
+          (box
+            :hexpand true
+            :space-evenly true
+            (label :text wifi)
+            (button
+              :onclick {wifiStatus == "connected" ? "./scripts/network.sh wifiDisconnect" : "./scripts/network.sh openWifiConnectWindow \"${wifi}\""}
+              (label :class "btn-text" :text {wifiName == wifi ? "Disconnect" : "Connect"})
+            )   
+          )
+        )
+      )
+    )
+  )
+)
+
+(defwindow wifiConnectWindow
+  :monitor 0
+  :stacking "fg"
+  :focusable true
+  :windowtype "dialog"
+  :geometry (geometry
+    :anchor "center"
+  )
+  (wifiConnectPrompt)
+)
+
+(defvar password "")
+(defwidget wifiConnectPrompt []
+  (box
+    :orientation "vertical"
+    :space-evenly false
+    :spacing 10
+    (label :class "wifi-prompt-heading" :text "Connecting To ${connectingTo}")
+    (input
+      :class "wifi-password-field"
+      :password true
+      :onchange "${eww} update password=\"{}\""
+      :onaccept "./scripts/network.sh wifiConnect \"${connectingTo}\" \"${password}\""
+    )
+    (box
+      :spacing 10
+      (button
+        :onclick "./scripts/network.sh wifiConnect \"${connectingTo}\" \"${password}\""
+        (label :class "btn-text" :text "Connect")
+      )
+      (button
+        :onclick "${eww} close wifiConnectWindow"
+        (label :class "btn-text" :text "Close")
+      )
+    )
   )
 )

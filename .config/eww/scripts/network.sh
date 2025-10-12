@@ -1,26 +1,49 @@
+eww="$HOME/eww/target/release/eww"
 
-
-name=$(nmcli -t -f DEVICE,TYPE,STATE,CONNECTION device | grep -v "lo" | grep -v "disconnected")
-devType=$(echo $name | awk -F ":" '{print $2}')
-conName=$(echo $name | awk -F ":" '{print $4}')
-
-getConType() {
-  if [ "$devType" == "ethernet" ];then
-    echo " "
-  elif [ "$devType" == "wifi" ];then
-    echo " "
-  else
-    echo " ⃠ "
-  fi  
+getConStatus() {
+  echo $(nmcli -t -f TYPE,STATE device | grep "$1" | awk -F ":" '{print $2}')
 }
 
-getConName() {
-  if [ "$devType" == "ethernet" ];then
-    echo "Ethernet" 
-  else
-    echo $conName
-  fi
+getWifiConName() {
+  echo $(nmcli -t -f TYPE,CONNECTION device | grep "wifi" | awk -F ":" '{print $2}')
 }
+
+getWifiList() {
+  names=$(nmcli -t -f SSID dev wifi list)
+  echo "$names" > "temp.txt"
+  list="["
+  while IFS= read -r entry;do
+    list+="\"${entry}\","
+  done < "temp.txt"
+  rm "temp.txt"
+  list="${list%,}]"
+  echo "$list"
+}
+
+wifiDisconnect() {
+  wifiName=$(nmcli -t -f DEVICE,TYPE device | grep "wifi" | awk -F ":" '{print $1}')
+  $(nmcli dev disconnect $wifiName)
+}
+openWifiConnectWindow() {
+  $eww update connectingTo="$1"
+  $eww open wifiConnectWindow
+}
+wifiConnect() {
+  $eww close wifiConnectWindow
+  $eww update password=""
+  nmcli connection delete "$1"
+  nmcli dev wifi connect "$1" password "$2"
+}
+
+ethDisconnect() {
+  eth=$(nmcli -t -f DEVICE,TYPE device | grep "ethernet" | awk -F ":" '{print $1}')
+  $(nmcli dev disconnect $eth)
+}
+ethConnect() {
+  eth=$(nmcli -t -f DEVICE,TYPE device | grep "ethernet" | awk -F ":" '{print $1}')
+  $(nmcli dev connect $eth)
+}
+
 
 
 "$@"

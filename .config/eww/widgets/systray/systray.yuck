@@ -1,0 +1,21 @@
+(defvar arrow "⏶")
+(defwidget trayicon []
+  (eventbox
+    :onclick "${eww} ${arrow == "⏷" ? "update arrow=⏶;${eww} close tray" : "update arrow=⏷;${eww} open tray"}"
+    (label :class "tray-icon" :text arrow)
+  )
+)
+
+(defwindow tray
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry
+    :anchor "top right"
+    :x "13%"
+    :y "15px"
+  )
+  (systray
+    :spacing 12
+    :icon-size 20
+  )
+)

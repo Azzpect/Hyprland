@@ -1,6 +1,7 @@
-@import "../colors/colors.scss";
+@import "./colors.scss";
 @import "./widgets/audio/audio.scss";
 @import "./widgets/network/network.scss";
+@import "./widgets/systray/systray.scss";
 
 * {
   all: unset;

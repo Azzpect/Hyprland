@@ -19,13 +19,10 @@ if [ ! -e "~/.config/rofi/colors.rasi" ]; then
 fi
 
 echo "copying color schemas"
-cp ~/.cache/wal/sequences ~/.config/colors/
-cp ~/.cache/wal/colors-rofi-dark.rasi ~/.config/colors/
-cp ~/.cache/wal/colors-waybar.css ~/.config/colors/
-cp ~/.cache/wal/colors.scss ~/.config/colors/
+cp ~/.cache/wal/colors.scss ~/.config/eww/
 
 echo "generating rofi color template"
-printf "@import \"~/.config/colors/colors-rofi-dark\"\n@import \"~/.config/rofi/rofi.rasi\"\nelement-text {\nbackground-color: inherit;\ntext-color: inherit;\n}" > ~/.config/rofi/colors.rasi
+printf "@import \"~/.cache/wal/colors-rofi-dark.rasi\"\n@import \"~/.config/rofi/rofi.rasi\"\nelement-text {\nbackground-color: inherit;\ntext-color: inherit;\n}" > ~/.config/rofi/colors.rasi
 
 ~/eww/target/release/eww reload
 killall hyprpaper

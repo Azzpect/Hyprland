@@ -1,4 +1,4 @@
-@import "~/.config/colors/colors-rofi-dark"
+@import "~/.cache/wal/colors-rofi-dark.rasi"
 @import "~/.config/rofi/rofi.rasi"
 element-text {
 background-color: inherit;

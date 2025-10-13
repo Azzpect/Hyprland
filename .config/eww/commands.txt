@@ -1,8 +1,0 @@
-yay -S rustup
-
-
-rustup default stable
-
-git clone https://github.com/elkowar/eww
-
-cargo build --release --no-default-features --features=wayland

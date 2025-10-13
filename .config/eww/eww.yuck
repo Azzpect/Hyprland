@@ -2,6 +2,7 @@
 
 (include "./widgets/audio/audio.yuck")
 (include "./widgets/network/network.yuck")
+(include "./widgets/systray/systray.yuck")
 
 (defwindow powermenu
   :monitor 0
@@ -36,6 +37,7 @@
     :space-evenly false   
     (network)
     (audio)
+    (trayicon)
     (label :class "sep" :text "|")
     (label :class "clock" :text time)
   )

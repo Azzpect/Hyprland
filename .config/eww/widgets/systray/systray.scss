@@ -1,0 +1,11 @@
+.tray {
+  background-color: $background;
+  padding: 15px;
+  border: 2px solid $foreground;
+  border-radius: 13px;
+}
+
+.tray-icon {
+  color: $foreground;
+  font-size: 20px;
+}

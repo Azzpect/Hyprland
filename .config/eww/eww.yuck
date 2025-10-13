@@ -3,7 +3,6 @@
 (include "./widgets/audio/audio.yuck")
 (include "./widgets/network/network.yuck")
 (include "./widgets/systray/systray.yuck")
-(include "./widgets/window/window.yuck")
 
 (defwindow powermenu
   :monitor 0
@@ -28,8 +27,8 @@
 )
 
 ;; windowmanager widget
-(defpoll windowManagerLiteral :interval "10ms"
-  "./scripts/window.sh genWindowManager"
+(defpoll workspaceManagerLiteral :interval "10ms"
+  "./scripts/workspace.sh genWorkspaceManager"
 )
 
 (defwidget windowmanager[]
@@ -37,7 +36,7 @@
   "(box
     :class \"workspace\"
     :space-evenly false
-    ${windowManagerLiteral}
+    ${workspaceManagerLiteral}
   )"
   )
 )

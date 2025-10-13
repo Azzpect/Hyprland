@@ -63,6 +63,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 #downloading fallback font
 # General Unicode coverage
+echo "Setting up fonts"
+cd ~/Hyprland
+cp -r fonts ~/.local/share
 sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra
 
 

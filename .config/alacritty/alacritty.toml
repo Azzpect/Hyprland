@@ -5,7 +5,7 @@ TERM = "xterm-256color"
 size = 11
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "Maple Mono"
 style = "bold"
 
 [window.padding]

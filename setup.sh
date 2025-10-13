@@ -27,7 +27,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 #setting up eww
 echo "installing rustup"
-yay -S rustup
+yay -S rustup jq
 rustup default stable
 cd ~
 echo "cloning eww repo"
@@ -66,7 +66,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 echo "Setting up fonts"
 cd ~/Hyprland
 cp -r fonts ~/.local/share
-sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra
-
+sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra ttf-meslo-nerd
 
 echo "reboot the system now to take effect"

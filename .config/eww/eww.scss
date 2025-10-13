@@ -2,6 +2,7 @@
 @import "./widgets/audio/audio.scss";
 @import "./widgets/network/network.scss";
 @import "./widgets/systray/systray.scss";
+@import "./widgets/window/window.scss";
 
 * {
   all: unset;
@@ -34,4 +35,11 @@ highlight {
 
 
 
+// window manager
+.workspace {
+  margin-left: 10px;
+}
 
+.circle {
+  margin: 8px;
+}

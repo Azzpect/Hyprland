@@ -3,6 +3,7 @@
 (include "./widgets/audio/audio.yuck")
 (include "./widgets/network/network.yuck")
 (include "./widgets/systray/systray.yuck")
+(include "./widgets/window/window.yuck")
 
 (defwindow powermenu
   :monitor 0
@@ -21,10 +22,23 @@
 
 (defwidget container []
   (box
-    :halign "end"
-    :hexpand true
-    :vexpand true
+    (windowmanager)
     (left_panel)
+  )
+)
+
+;; windowmanager widget
+(defpoll windowManagerLiteral :interval "10ms"
+  "./scripts/window.sh genWindowManager"
+)
+
+(defwidget windowmanager[]
+  (literal :content 
+  "(box
+    :class \"workspace\"
+    :space-evenly false
+    ${windowManagerLiteral}
+  )"
   )
 )
 
@@ -32,8 +46,7 @@
   (box
     :orientation "horizontal"
     :spacing 8
-    :halign "start"
-    :hexpand false
+    :halign "end"
     :space-evenly false   
     (network)
     (audio)

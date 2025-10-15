@@ -1,7 +1,14 @@
 eww="$HOME/eww/target/release/eww"
 
 getConStatus() {
-  echo $(nmcli -t -f TYPE,STATE device | grep "$1" | awk -F ":" '{print $2}')
+  con=$(nmcli -t -f TYPE,STATE device | grep "$1" | awk -F ":" '{print $2}')
+  for c in $con; do
+    if [ "$c" = "connected" ]; then
+      echo "connected"
+      return
+    fi
+  done
+  echo "disconnected"
 }
 
 getWifiConName() {

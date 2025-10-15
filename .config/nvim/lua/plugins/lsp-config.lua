@@ -33,47 +33,46 @@ return {
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()
-			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			lspconfig.lua_ls.setup({
+                        vim.lsp.config['lua_ls'] = {
 				capabilities = capabilities,
-			})
-			lspconfig.ts_ls.setup({
+                        } 
+			vim.lsp.config['ts_ls'] = {
 				capabilities = capabilities,
-			})
-			lspconfig.html.setup({
+			}
+			vim.lsp.config['html'] = {
 				capabilities = capabilities,
-			})
-			lspconfig.cssls.setup({
+			}
+			vim.lsp.config['cssls'] = {
 				capabilities = capabilities,
-			})
-			lspconfig.pyright.setup({
+			}
+			vim.lsp.config['pyright'] = {
 				capabilities = capabilities,
-			})
-			lspconfig.prismals.setup({
+			}
+			vim.lsp.config['prismals'] = {
 				capabilities = capabilities,
-			})
-			lspconfig.tailwindcss.setup({
+			}
+			vim.lsp.config['tailwindcss'] = {
 				capabilities = capabilities,
-			})
-			lspconfig.jdtls.setup({
+			}
+			vim.lsp.config['jdtls'] = {
 				capabilities = capabilities,
-			})
-			lspconfig.clangd.setup({
+			}
+			vim.lsp.config['clangd'] = {
 				capabilities = capabilities,
-			})
-			lspconfig.gopls.setup({
+			}
+			vim.lsp.config['gopls'] = {
 				capabilities = capabilities,
-			})
-			lspconfig.sqls.setup({
+			}
+			vim.lsp.config['sqls'] = {
 				capabilities = capabilities,
 				on_attach = function(client, bufnr)
 					client.server_capabilities.documentFormattingProvider = false
 				end,
-			})
-			lspconfig.phpactor.setup({
+			}
+			vim.lsp.config['phpactor'] = {
 				capabilities = capabilities,
-			})
+			}
 
 			vim.keymap.set("n", "<leader>d", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>da", vim.lsp.buf.definition, {})

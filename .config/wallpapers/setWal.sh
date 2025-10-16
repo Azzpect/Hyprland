@@ -1,6 +1,6 @@
 #!/bin/bash
 
-file_path=$(zenity --file-selection --title="Select a wallpaper" --filename="~/.config/wallpapers/")
+file_path=$(zenity --file-selection --title="Select a wallpaper" --filename="$HOME/.config/wallpapers/")
 echo "file path: $file_path"
 if [ "$file_path" = "" ]; then
   exit 1

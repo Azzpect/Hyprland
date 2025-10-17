@@ -1,12 +1,4 @@
-.local/state
-.local/share/nvim
-.local/share/hyprland
-.local/share/sddm
-.local/share/Trash
-.local/share/applications
-.local/share/gvfs*
-.local/share/mime
-.local/share/godot
-.local/share/vulkan
-.local/share/spotify-launcher
-*.xbel*
+.env
+spotify_token.json
+node_modules
+*.txt

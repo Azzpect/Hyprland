@@ -92,8 +92,27 @@ app.get("/now-playing", async (req, res) => {
   } catch {
     res.send("Error: No token found. Please login first at /login");
   }
-  })
+})
 
+app.get("/pause", async (req, res) => {
+  try {
+    const spotify_token = JSON.parse(readFileSync("spotify_token.json", "utf-8"));
+    const spotify_res = await fetch("https://api.spotify.com/v1/me/player/pause", {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + spotify_token.access_token
+      }
+    })
+    if (spotify_res.status === 200) {
+      res.send("Playback paused");
+      return;
+    }
+    const data = await spotify_res.json();
+    res.send("Error: " + data.error.message);
+  }catch(err) {
+    res.send("Error: No token found. Please login first at /login");
+  }
+})
 
 
 

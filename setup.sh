@@ -45,12 +45,16 @@ chmod +x ~/.config/hypr/loadWallpaper.sh
 chmod +x ~/.config/wallpapers/setWal.sh
 chmod +x ~/.config/wallpapers/setWal.sh
 sudo -R +x ~/.config/eww/scripts
+cd ~/.config/eww/spotify
+npm install
 
 
 echo "setting up sddm"
 sudo pacman -Syu qt6-svg qt6-declarative qt5-quickcontrols2
 yay -S catppuccin-sddm-theme-macchiato 
 sudo systemctl enable sddm
+sudo mkdir -p /etc/sddm.conf.d
+sudo cp ~/Hyprland/sddm.conf /etc/sddm.conf.d/theme.conf
 
 
 #setting up zsh

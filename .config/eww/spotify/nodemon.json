@@ -1,5 +1,5 @@
 {
   "exec": "node --env-file=.env index.js",
-  "ext": "js,json",
+  "ext": "js",
   "ignore": ["node_modules/"]
 }

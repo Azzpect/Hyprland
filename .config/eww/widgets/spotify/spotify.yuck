@@ -1,0 +1,12 @@
+(defpoll info :interval "2s"
+  "./scripts/spotify.sh getSongInfo"
+)
+
+(defwidget spotify []
+  (box
+    :space-evenly false
+    :halign "center"
+    (literal :content "${info}")
+  )
+)
+

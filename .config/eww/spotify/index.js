@@ -60,6 +60,32 @@ app.get("/now-playing", async (req, res) => {
     })
     const data = await spotify_res.json();
     if (data.error) {
+      if (data.error.status === 401) {
+        console.log("Access token expired, refreshing...");
+        const refresh_res = await fetch("https://accounts.spotify.com/api/token", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": "Basic " + Buffer.from(process.env.SPOTIFY_CLIENT_ID + ":" + process.env.SPOTIFY_CLIENT_SECRET).toString("base64")
+          },
+          body: new URLSearchParams({
+            grant_type: "refresh_token",
+            refresh_token: spotify_token.refresh_token,
+            client_id: process.env.SPOTIFY_CLIENT_ID,
+          })
+        })
+        const data = await refresh_res.json();
+        if (data.error) {
+          console.log(data);
+          res.send("Error: " + data.error.message);
+          return;
+        }
+        spotify_token.access_token = data.access_token;
+        writeFileSync("spotify_token.json", JSON.stringify(spotify_token, null, 2));
+        res.redirect("/now-playing");
+        return;
+      }
+      console.log(data);
       res.send("Error: " + data.error.message);
     }
     res.json(data);

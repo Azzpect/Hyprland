@@ -3,6 +3,7 @@
 (include "./widgets/audio/audio.yuck")
 (include "./widgets/network/network.yuck")
 (include "./widgets/systray/systray.yuck")
+(include "./widgets/spotify/spotify.yuck")
 
 (defwindow powermenu
   :monitor 0
@@ -22,6 +23,7 @@
 (defwidget container []
   (box
     (windowmanager)
+    (spotify)
     (left_panel)
   )
 )

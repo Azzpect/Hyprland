@@ -1,0 +1,17 @@
+(defpoll time :interval "1s"
+  `date +"%a %e %H:%M:%S"`
+)
+(defpoll cal :interval "60s"
+  "cal"
+)
+
+(defwindow calendar
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry
+    :x "8%"
+    :y "15px"
+    :anchor "top right"
+  )
+  cal
+)

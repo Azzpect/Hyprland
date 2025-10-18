@@ -1,9 +1,10 @@
 (defvar eww "$HOME/eww/target/release/eww")
 
-(include "./widgets/audio/audio.yuck")
-(include "./widgets/network/network.yuck")
-(include "./widgets/systray/systray.yuck")
-(include "./widgets/spotify/spotify.yuck")
+(include "./widgets/audio.yuck")
+(include "./widgets//network.yuck")
+(include "./widgets/systray.yuck")
+(include "./widgets/spotify.yuck")
+(include "./widgets/time.yuck")
 
 (defwindow powermenu
   :monitor 0
@@ -53,14 +54,9 @@
     (audio)
     (trayicon)
     (label :class "sep" :text "|")
-    (label :class "clock" :text time)
+    (button :class "clock" 
+      :onclick "${eww} open calendar --toggle"
+      time
+    )
   )
-)
-
-
-
-;; clock module
-
-(defpoll time :interval "1s"
-  `date +"%H:%M:%S"`
 )

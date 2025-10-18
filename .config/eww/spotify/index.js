@@ -114,6 +114,85 @@ app.get("/pause", async (req, res) => {
   }
 })
 
+app.get("/is-playing", async (req, res) => {
+  try {
+    const spotify_token = JSON.parse(readFileSync("spotify_token.json", "utf-8"));
+    const spotify_res = await fetch("https://api.spotify.com/v1/me/player", {
+      method: "GET",
+      headers: {
+        "Authorization": "Bearer " + spotify_token.access_token
+      }
+    })
+    const data = await spotify_res.json();
+    if (spotify_res.status === 200) {
+      res.send(data.is_playing.toString());
+      return;
+    }
+    res.send("Error: " + data.error.message);
+  }catch(err) {
+    res.send("Error: " + err.message);
+  }
+})
+
+app.get("/play", async (req, res) => {
+  try {
+    const spotify_token = JSON.parse(readFileSync("spotify_token.json", "utf-8"));
+    const spotify_res = await fetch("https://api.spotify.com/v1/me/player/play", {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + spotify_token.access_token
+      }
+    })
+    if (spotify_res.status === 200) {
+      res.send("Playback started");
+      return;
+    }
+    const data = await spotify_res.json();
+    res.send("Error: " + data.error.message);
+  }catch(err) {
+    res.send("Error: " + err.message);
+  }
+})
+
+app.get("/next", async (req, res) => {
+  try {
+    const spotify_token = JSON.parse(readFileSync("spotify_token.json", "utf-8"));
+    const spotify_res = await fetch("https://api.spotify.com/v1/me/player/next", {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + spotify_token.access_token
+      }
+    })
+    if (spotify_res.status === 200) {
+      res.send("Skipped to next track");
+      return;
+    }
+    const data = await spotify_res.json();
+    res.send("Error: " + data.error.message);
+  }catch(err) {
+    res.send("Error: " + err.message);
+  }
+})
+
+app.get("/prev", async (req, res) => {
+  try {
+    const spotify_token = JSON.parse(readFileSync("spotify_token.json", "utf-8"));
+    const spotify_res = await fetch("https://api.spotify.com/v1/me/player/previous", {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + spotify_token.access_token
+      }
+    })
+    if (spotify_res.status === 200) {
+      res.send("Skipped to previous track");
+      return;
+    }
+    const data = await spotify_res.json();
+    res.send("Error: " + data.error.message);
+  }catch(err) {
+    res.send("Error: " + err.message);
+  }
+})
 
 
 

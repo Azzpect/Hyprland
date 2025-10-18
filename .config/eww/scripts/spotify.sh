@@ -16,5 +16,26 @@ getSongInfo() {
     )"
 }
 
+isPlaying() {
+  status=$(curl -s "http://localhost:3000/now-playing" | jq -r '.is_playing')
+  echo $status
+}
+
+play() {
+  curl  "http://localhost:3000/play"
+}
+
+pause() {
+  curl  "http://localhost:3000/pause"
+}
+
+next() {
+  curl  "http://localhost:3000/next"
+}
+
+prev() {
+  curl  "http://localhost:3000/prev"
+}
+
 
 "$@"

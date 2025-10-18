@@ -1,5 +1,9 @@
-(defpoll info :interval "2s"
+(defpoll info :interval "1s"
   "./scripts/spotify.sh getSongInfo"
+)
+
+(defpoll isPlaying :interval "1s"
+  "./scripts/spotify.sh isPlaying"
 )
 
 (defwidget spotify []
@@ -7,6 +11,24 @@
     :space-evenly false
     :halign "center"
     (literal :content "${info}")
+    (box
+      :class "spotify-controls"
+      (button 
+        :class "spotify-controller" 
+        :onclick "./scripts/spotify.sh prev"
+        (label :class "spotify-controller-text spotify-controller-text-small" :text "⏮")
+      )
+      (button 
+        :class "spotify-controller" 
+        :onclick {isPlaying ? "./scripts/spotify.sh pause" : "./scripts/spotify.sh play"}
+        (label :class "spotify-controller-text" :text {isPlaying ? "⏸" : "▶"} )
+      )
+      (button 
+        :class "spotify-controller" 
+        :onclick "./scripts/spotify.sh next"
+        (label :class "spotify-controller-text spotify-controller-text-small" :text "⏭")
+      )
+    )
   )
 )
 

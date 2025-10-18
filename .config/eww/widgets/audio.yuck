@@ -11,7 +11,7 @@
   :stacking "fg"
   :geometry (geometry
     :y "15px"
-    :x "8%"
+    :x "10%"
     :width "250px"
     :height "10%"
     :anchor "top right"

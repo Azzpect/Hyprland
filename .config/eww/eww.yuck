@@ -1,7 +1,7 @@
 (defvar eww "$HOME/eww/target/release/eww")
 
 (include "./widgets/audio.yuck")
-(include "./widgets//network.yuck")
+(include "./widgets/network/network.yuck")
 (include "./widgets/systray.yuck")
 (include "./widgets/spotify.yuck")
 (include "./widgets/time.yuck")

@@ -39,6 +39,9 @@ cargo build --release --no-default-features --features=wayland
 cd ~/Hyprland
 stow . --adopt
 
+#setting yazi desktop file
+echo "setting yazi desktop file"
+cp ~/Hyprland/yazi.desktop ~/.local/share/applications/
 #setting script permissions
 echo "giving permission to scripts"
 chmod +x ~/.config/hypr/loadWallpaper.sh

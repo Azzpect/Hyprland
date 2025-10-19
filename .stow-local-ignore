@@ -4,3 +4,4 @@ pacman.conf
 sddm.conf
 setup.sh
 fonts
+*.desktop

@@ -20,6 +20,7 @@ fi
 
 echo "copying color schemas"
 cp ~/.cache/wal/colors.scss ~/.config/eww/
+cp ~/.cache/wal/colors-kitty.conf ~/.config/kitty/
 
 echo "generating rofi color template"
 printf "@import \"~/.cache/wal/colors-rofi-dark.rasi\"\n@import \"~/.config/rofi/rofi.rasi\"\nelement-text {\nbackground-color: inherit;\ntext-color: inherit;\n}" > ~/.config/rofi/colors.rasi

@@ -17,12 +17,13 @@ getWifiConName() {
 
 getWifiList() {
   names=$(nmcli -t -f SSID dev wifi list)
-  echo "$names" > "temp.txt"
+  tempFile=$(mktemp)
+  echo "$names" > "$tempFile"
   list="["
   while IFS= read -r entry;do
     list+="\"${entry}\","
-  done < "temp.txt"
-  rm "temp.txt"
+  done < "$tempFile"
+  rm "$tempFile"
   list="${list%,}]"
   echo "$list"
 }

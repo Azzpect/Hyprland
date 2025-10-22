@@ -1,7 +1,8 @@
 
 
 genWorkspaceManager() {
-  hyprctl -j workspaces | jq '.[].id' > window.txt
+  temp=$(mktemp)
+  hyprctl -j workspaces | jq '.[].id' > "$temp"
 
   literal=""
   activeWindow=$(hyprctl -j activeworkspace | jq '.id')
@@ -10,7 +11,7 @@ genWorkspaceManager() {
     if [ $window -gt $lastWindow ];then
       lastWindow=$window
     fi
-  done < "window.txt"
+  done < "$temp"
   i=1
   while [ $i -le $lastWindow ]; do
     thickness=4
@@ -21,7 +22,7 @@ genWorkspaceManager() {
     literal+=$element
     ((i++))
   done
-  rm "window.txt"
+  rm "$temp"
   echo "$literal"
 }
 

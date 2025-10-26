@@ -88,7 +88,10 @@ app.get("/now-playing", async (req, res) => {
       console.log(data);
       res.send("Error: " + data.error.message);
     }
-    res.json(data);
+    let parsedData = { "name": data.item.name, "artist": data.item.artists[0].name, "poster": data.item.album.images[data.item.album.images.length - 1].url, "isPlaying": data.is_playing };
+    parsedData.name = parsedData.name.replace(/\"/g, "'");
+    parsedData.artist = parsedData.artist.replace(/\"/g, "'");
+    res.json(parsedData);
   } catch {
     res.send("Error: No token found. Please login first at /login");
   }
@@ -111,26 +114,6 @@ app.get("/pause", async (req, res) => {
     res.send("Error: " + data.error.message);
   }catch(err) {
     res.send("Error: No token found. Please login first at /login");
-  }
-})
-
-app.get("/is-playing", async (req, res) => {
-  try {
-    const spotify_token = JSON.parse(readFileSync("spotify_token.json", "utf-8"));
-    const spotify_res = await fetch("https://api.spotify.com/v1/me/player", {
-      method: "GET",
-      headers: {
-        "Authorization": "Bearer " + spotify_token.access_token
-      }
-    })
-    const data = await spotify_res.json();
-    if (spotify_res.status === 200) {
-      res.send(data.is_playing.toString());
-      return;
-    }
-    res.send("Error: " + data.error.message);
-  }catch(err) {
-    res.send("Error: " + err.message);
   }
 })
 
@@ -196,6 +179,6 @@ app.get("/prev", async (req, res) => {
 
 
 
-app.listen(3000, () => {
+app.listen(8000, () => {
   console.log("Server is running on http://localhost:3000");
 })

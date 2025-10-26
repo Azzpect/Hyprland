@@ -2,9 +2,7 @@
   "./scripts/spotify.sh getSongInfo"
 )
 
-(defpoll isPlaying :interval "1s"
-  "./scripts/spotify.sh isPlaying"
-)
+(defvar isPlaying false)
 
 (defwidget spotify []
   (box

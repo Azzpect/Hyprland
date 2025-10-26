@@ -1,10 +1,13 @@
 eww="$HOME/eww/target/release/eww"
 
 getSongInfo() {
-  info=$(curl -s "http://localhost:3000/now-playing")
-  poster=$(echo "$info" | jq -r '.item.album.images[-1].url')
-  name=$(echo "$info" | jq -r '.item.name')
-  artist=$(echo "$info" | jq -r '.item.artists[0].name')
+  info=$(curl -s "http://localhost:8000/now-playing")
+  poster=$(echo "$info" | jq -r '.poster')
+  name=$(echo "$info" | jq -r '.name')
+  artist=$(echo "$info" | jq -r '.artist')
+  isPlaying=$(echo "$info" | jq -r '.isPlaying')
+
+  $eww update isPlaying=$isPlaying
 
   echo "(box
       :space-evenly false
@@ -16,10 +19,6 @@ getSongInfo() {
     )"
 }
 
-isPlaying() {
-  status=$(curl -s "http://localhost:3000/now-playing" | jq -r '.is_playing')
-  echo $status
-}
 
 play() {
   curl  "http://localhost:3000/play"

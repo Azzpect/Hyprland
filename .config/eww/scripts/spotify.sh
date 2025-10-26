@@ -1,11 +1,21 @@
 eww="$HOME/eww/target/release/eww"
 
 getSongInfo() {
-  info=$(curl -s "http://localhost:8000/now-playing")
+  info=$(curl -s "http://localhost:3000/now-playing")
   poster=$(echo "$info" | jq -r '.poster')
   name=$(echo "$info" | jq -r '.name')
   artist=$(echo "$info" | jq -r '.artist')
   isPlaying=$(echo "$info" | jq -r '.isPlaying')
+
+  if [ $isPlaying == "null" ]; then
+    isPlaying="false"
+  fi
+
+  if [ -z "$name" ] || [ "$name" == "null" ]; then
+    name="No song playing"
+    artist=""
+    isPlaying="false"
+  fi
 
   $eww update isPlaying=$isPlaying
 

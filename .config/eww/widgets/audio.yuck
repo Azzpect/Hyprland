@@ -2,7 +2,9 @@
   (button
     :class "audio-btn"
     :onclick "${eww} open audio_popup --toggle"
-    "♪"
+    (label 
+      :text "𝄞"
+    )
   )
 )
 

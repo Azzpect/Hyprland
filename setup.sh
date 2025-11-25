@@ -14,9 +14,9 @@ echo "updating aur"
 sudo pacman -Syu
 
 echo "downloading hyprland, sddm, dolphing waybar, alcritty, neovim, pipewire, wireplumber, pipewire-pulse, pavucontrol" 
-yay -S hyprland
+sudo pacman -S hyprland hyprpaper xdg-desktop-portal-hyprland
 
-yay -S sddm firefox yazi gvfs kitty neovim pipewire wireplumber pipewire-pulse pavucontrol xdg-desktop-portal-hyprland stow neofetch zsh tmux rofi hyprpaper python-pywal zenity waybar rose-pine-hyprcursor wl-clipboard xclip mirage grim slurp nodejs npm dunst papirus-icon-theme
+yay -S sddm firefox yazi gvfs kitty neovim pipewire wireplumber pipewire-pulse pavucontrol stow neofetch zsh tmux rofi python-pywal zenity waybar rose-pine-hyprcursor wl-clipboard xclip mirage grim slurp nodejs npm dunst papirus-icon-theme
 
 #setting up hyprpaper as user service
 systemctl --user enable --now hyprpaper.service

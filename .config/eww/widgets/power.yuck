@@ -1,0 +1,41 @@
+(defwidget power []
+  (button
+    :onclick "${eww} open power_popup --toggle"
+    (label 
+      :class "power-window-icon"
+      :text "⏻"
+    )
+  )
+)
+
+(defwindow power_popup
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry
+    :y "15px"
+    :x "15%"
+    :width "80px"
+    :height "4%"
+    :anchor "top right"
+  )
+  (power_popup_items)
+)
+
+(defwidget power_popup_items []
+  (eventbox
+    :onhoverlost "${eww} open power_popup --toggle"
+    (box
+      :orientation "horizontal"
+      :space-evenly true 
+      :spacing 8
+      (button
+        :onclick "shutdown -h now"
+        (label :class "power-btn" :text "⏻")
+      )
+      (button
+        :onclick "reboot"
+        (label :class "restart-btn" :text "✖")
+      )
+    )
+  )
+)

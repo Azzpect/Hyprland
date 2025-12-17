@@ -5,6 +5,7 @@
 (include "./widgets/systray.yuck")
 (include "./widgets/spotify.yuck")
 (include "./widgets/time.yuck")
+(include "./widgets/power.yuck")
 
 (defwindow powermenu
   :monitor 0
@@ -53,6 +54,7 @@
     (network)
     (audio)
     (trayicon)
+    (power)
     (label :class "sep" :text "|")
     (button :class "clock" 
       :onclick "${eww} open calendar --toggle"

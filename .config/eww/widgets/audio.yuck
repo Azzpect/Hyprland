@@ -3,7 +3,8 @@
     :class "audio-btn"
     :onclick "${eww} open audio_popup --toggle"
     (label 
-      :text "𝄞"
+      :class "audio-window-icon"
+      :text "♩"
     )
   )
 )

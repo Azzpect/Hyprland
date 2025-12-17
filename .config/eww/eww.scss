@@ -25,6 +25,10 @@
 }
 
 // audio module
+.audio-window-icon {
+  color: $foreground;
+  font-size: 16px;
+}
 .audio_popup {
   background-color: $background;
   border-radius: 13px;
@@ -103,4 +107,26 @@ highlight {
 .tray-icon {
   color: $foreground;
   font-size: 20px;
+}
+
+// power button
+.power-window-icon {
+  color: $foreground;
+  font-size: 20px;
+}
+
+.power_popup {
+  background-color: $background;
+  border-radius: 13px;
+  padding: 8px;
+  border: 2px solid $foreground;
+}
+
+.power-btn {
+  color: $foreground;
+  font-size: 20px;
+}
+.restart-btn {
+  color: $foreground;
+  font-size: 16px;
 }

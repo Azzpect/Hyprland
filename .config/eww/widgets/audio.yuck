@@ -14,7 +14,7 @@
   :stacking "fg"
   :geometry (geometry
     :y "15px"
-    :x "10%"
+    :x "12%"
     :width "250px"
     :height "10%"
     :anchor "top right"
@@ -40,12 +40,13 @@
       (box
         :orientation "horizontal"
         :halign "start"
+        :class "audio-popup-item"
         (label :class "audio-popup-text" :text "🕪")
         (scale
           :min 0
           :max 200
           :value volume
-          :width 150
+          :width 110
           :class "volume-slider"
           :tooltip "${volume}%"
           :onchange "~/.config/eww/scripts/set_volume.sh set_output_volume {}"
@@ -59,7 +60,7 @@
           :min 0
           :max 200
           :value mic
-          :width 150
+          :width 110
           :class "volume-slider"
           :tooltip "${mic}%"
           :onchange "~/.config/eww/scripts/set_volume.sh set_mic_volume {}"

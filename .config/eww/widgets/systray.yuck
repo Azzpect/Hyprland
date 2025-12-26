@@ -11,7 +11,7 @@
   :stacking "fg"
   :geometry (geometry
     :anchor "top right"
-    :x "15%"
+    :x "16%"
     :y "15px"
   )
   (systray

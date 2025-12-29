@@ -41,13 +41,13 @@ stow . --adopt
 
 #setting yazi desktop file
 echo "setting yazi desktop file"
+mkdir -p ~/.local/share/applications
 cp ~/Hyprland/yazi.desktop ~/.local/share/applications/
 #setting script permissions
 echo "giving permission to scripts"
 chmod +x ~/.config/hypr/loadWallpaper.sh
 chmod +x ~/.config/wallpapers/setWal.sh
-chmod +x ~/.config/wallpapers/setWal.sh
-sudo -R +x ~/.config/eww/scripts
+sudo chmod -R +x ~/.config/eww/scripts
 cd ~/.config/eww/spotify
 npm install
 

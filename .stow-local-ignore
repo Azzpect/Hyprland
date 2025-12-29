@@ -1,7 +1,7 @@
-.git
-README.*
+\.git/
+^README\.*$
 pacman.conf
 sddm.conf
 setup.sh
-fonts
-*.desktop
+fonts/
+.*\.desktop$

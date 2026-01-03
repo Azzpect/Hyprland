@@ -2,7 +2,7 @@
 [global]
     follow = keyboard
     width = (0, 1500)
-    height = 950
+    height = (0, 950)
     origin = bottom-right
     offset = (48,60)
     scale = 0

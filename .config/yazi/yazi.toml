@@ -6,3 +6,6 @@ edit = [
 open = [
   { run = "xdg-open %s", for = "unix" },
 ]
+play = [
+  { run = "vlc %s", for = "unix" },
+]

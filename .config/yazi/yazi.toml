@@ -3,3 +3,6 @@ edit = [
 	{ run = 'nvim "$@"', block = true, for = "unix" },
 	{ run = "%EDITOR% %*",  block = true, for = "windows" },
 ]
+open = [
+  { run = "xdg-open %s", for = "unix" },
+]

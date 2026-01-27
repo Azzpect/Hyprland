@@ -75,4 +75,9 @@ cd ~/Hyprland
 cp -r fonts ~/.local/share
 sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra ttf-meslo-nerd
 
+echo "Setting default applications"
+xdg-mime default mirage.desktop image/png
+xdg-mime default mirage.desktop image/jpg
+xdg-mime default mirage.desktop image/jpeg
+
 echo "reboot the system now to take effect"

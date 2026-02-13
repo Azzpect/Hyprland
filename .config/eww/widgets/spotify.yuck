@@ -8,6 +8,7 @@
   (box
     :space-evenly false
     :halign "center"
+    :class "spotify"
     (literal :content "${info}")
     (box
       :class "spotify-controls"

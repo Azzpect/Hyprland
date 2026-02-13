@@ -24,9 +24,9 @@
 
 (defwidget container []
   (box
-    (windowmanager)
-    (spotify)
     (left_panel)
+    (spotify)
+    (right_panel)
   )
 )
 
@@ -35,22 +35,31 @@
   "./scripts/workspace.sh genWorkspaceManager"
 )
 
+(defwidget left_panel[]
+  (box
+    :space-evenly false
+    (windowmanager)
+  )
+)
+
 (defwidget windowmanager[]
   (literal :content 
   "(box
     :class \"workspace\"
     :space-evenly false
+    (label :class \"logo\" :text \" \")
     ${workspaceManagerLiteral}
   )"
   )
 )
 
-(defwidget left_panel []
+(defwidget right_panel []
   (box
     :orientation "horizontal"
     :spacing 8
     :halign "end"
     :space-evenly false   
+    :class "right-panel"
     (network)
     (audio)
     (trayicon)

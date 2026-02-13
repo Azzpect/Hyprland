@@ -8,8 +8,8 @@
   font-size: 12px;
   color: $foreground;
 }
+
 .powermenu {
-  background-color: $background;
   border-radius: 18px;
 }
 
@@ -17,6 +17,7 @@
 .clock {
   padding-right: 10px
 }
+
 .calendar {
   background-color: $background;
   border-radius: 18px;
@@ -29,6 +30,7 @@
   color: $foreground;
   font-size: 16px;
 }
+
 .audio_popup {
   background-color: $background;
   border-radius: 13px;
@@ -64,9 +66,18 @@ highlight {
 
 
 
-// window manager
+// left panel
+
+.logo {
+  font-size: 18px;
+  margin: 0;
+  color: $foreground;
+}
 .workspace {
-  margin-left: 10px;
+  margin: 0;
+  padding: 0 8px 0 8px;
+  border-radius: 18px;
+  background-color: $background;
 }
 
 .circle {
@@ -75,6 +86,12 @@ highlight {
 
 
 // spotify styles
+.spotify {
+  background-color: $background;
+  padding: 0 15px 0 5px;
+  border-radius: 18px;
+}
+
 .spotify-img {
   background-size: cover;
   background-position: center;
@@ -88,15 +105,22 @@ highlight {
   margin-left: 8px;
 }
 
-.spotify-controller-text{
+.spotify-controller-text {
   font-size: 16px;
   margin: 0 8px;
 }
+
 .spotify-controller-text-small {
   font-size: 20px;
 }
 
 // system tray styles
+.right-panel {
+  background-color: $background;
+  border-radius: 18px;
+  padding: 0 5px 0 15px;
+}
+
 .tray {
   background-color: $background;
   padding: 15px;
@@ -126,6 +150,7 @@ highlight {
   color: $foreground;
   font-size: 20px;
 }
+
 .restart-btn {
   color: $foreground;
   font-size: 16px;

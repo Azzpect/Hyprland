@@ -2,7 +2,7 @@
 [global]
     follow = keyboard
     width = (0, 1500)
-    height = 950
+    height = (0, 950)
     origin = bottom-right
     offset = (48,60)
     scale = 0
@@ -66,20 +66,20 @@
 
 
 [urgency_low]
-	background = "#121212"
-	foreground = "#cac8cf"
-	frame_color = "#cac8cf"
+	background = "#0f0c11"
+	foreground = "#c7c7c8"
+	frame_color = "#c7c7c8"
 	timeout = 10
 
 [urgency_normal]
-	background = "#121212"
-	foreground = "#cac8cf"
-	frame_color = "#cac8cf"
-	highlight = "#896F7F"
+	background = "#0f0c11"
+	foreground = "#c7c7c8"
+	frame_color = "#c7c7c8"
+	highlight = "#5D5F60"
 	timeout = 10
 
 [urgency_critical]
-	background = "#121212"
-	foreground = "#cac8cf"
-	frame_color = "#896F7F"
+	background = "#0f0c11"
+	foreground = "#c7c7c8"
+	frame_color = "#5D5F60"
 	timeout = 0

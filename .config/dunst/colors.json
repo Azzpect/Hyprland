@@ -1,28 +1,28 @@
 {
-    "wallpaper": "/home/azzpect/.config/wallpapers/black-white-girl.png",
+    "wallpaper": "/home/azzpect/.config/wallpapers/astronaut-balloons.jpg",
     "alpha": "100",
 
     "special": {
-        "background": "#121212",
-        "foreground": "#cac8cf",
-        "cursor": "#cac8cf"
+        "background": "#0f0c11",
+        "foreground": "#c7c7c8",
+        "cursor": "#c7c7c8"
     },
     "colors": {
-        "color0": "#121212",
-        "color1": "#896F7F",
-        "color2": "#7C8551",
-        "color3": "#9CAC55",
-        "color4": "#676687",
-        "color5": "#A26E9C",
-        "color6": "#888888",
-        "color7": "#cac8cf",
-        "color8": "#8d8c90",
-        "color9": "#896F7F",
-        "color10": "#7C8551",
-        "color11": "#9CAC55",
-        "color12": "#676687",
-        "color13": "#A26E9C",
-        "color14": "#888888",
-        "color15": "#cac8cf"
+        "color0": "#0f0c11",
+        "color1": "#5D5F60",
+        "color2": "#A14836",
+        "color3": "#A65D4C",
+        "color4": "#DC925E",
+        "color5": "#487B84",
+        "color6": "#3AB3AF",
+        "color7": "#c7c7c8",
+        "color8": "#8b8b8c",
+        "color9": "#5D5F60",
+        "color10": "#A14836",
+        "color11": "#A65D4C",
+        "color12": "#DC925E",
+        "color13": "#487B84",
+        "color14": "#3AB3AF",
+        "color15": "#c7c7c8"
     }
 }

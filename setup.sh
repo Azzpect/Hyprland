@@ -16,7 +16,7 @@ sudo pacman -Syu
 echo "downloading hyprland, sddm, dolphing waybar, alcritty, neovim, pipewire, wireplumber, pipewire-pulse, pavucontrol" 
 sudo pacman -S hyprland hyprpaper xdg-desktop-portal-hyprland
 
-yay -S sddm firefox yazi gvfs kitty neovim pipewire wireplumber pipewire-pulse pavucontrol stow neofetch zsh tmux rofi python-pywal zenity waybar rose-pine-hyprcursor wl-clipboard xclip mirage grim slurp nodejs npm dunst papirus-icon-theme vlc
+yay -S sddm firefox yazi gvfs kitty neovim pipewire wireplumber pipewire-pulse pavucontrol stow neofetch zsh tmux rofi python-pywal zenity waybar rose-pine-hyprcursor wl-clipboard xclip feh grim slurp nodejs npm dunst papirus-icon-theme vlc
 
 #setting up hyprpaper as user service
 systemctl --user enable --now hyprpaper.service

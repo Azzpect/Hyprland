@@ -44,5 +44,16 @@ vim.api.nvim_set_hl(0, "@function", { fg = c.color4 })
 vim.api.nvim_set_hl(0, "@string",   { fg = c.color3 })
 vim.api.nvim_set_hl(0, "@type",     { fg = c.color5 })
 
+-- Neo-Tree
+
+vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = c.color4 })
+vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = c.color4 })
+vim.api.nvim_set_hl(0, "NeoTreeFileIcon", { fg = c.color5 })
+vim.api.nvim_set_hl(0, "NeoTreeFileNameOpened", { fg = c.color2 })
+vim.api.nvim_set_hl(0, "NeoTreeGitAdded", { fg = c.color6 })
+vim.api.nvim_set_hl(0, "NeoTreeGitModified", { fg = c.color5 })
+vim.api.nvim_set_hl(0, "NeoTreeGitDeleted", { fg = c.color1 })
+vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", { fg = c.color8 })
+
 require("keymaps")
 require("lazy").setup("plugins")

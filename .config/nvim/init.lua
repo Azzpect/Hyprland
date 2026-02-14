@@ -12,11 +12,37 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.opt.clipboard = "unnamedplus"
 
--- transparent background
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
+-- colors 
+
+local json = vim.fn.json_decode
+local wal_file = vim.fn.expand("~/.cache/wal/colors.json")
+local wal_data = json(vim.fn.readfile(wal_file))
+
+
+local bg = wal_data.special.background
+local fg = wal_data.special.foreground
+
+local c = wal_data.colors
+
+-- Reset background & basic colors
+vim.api.nvim_set_hl(0, "Normal", { fg = fg, bg = bg })
+vim.api.nvim_set_hl(0, "NormalFloat", { fg = fg, bg = "none" })
+vim.api.nvim_set_hl(0, "SignColumn", { fg = fg, bg = "none" })
+
+-- Basic syntax
+vim.api.nvim_set_hl(0, "Comment",  { fg = c.color8, italic = true })
+vim.api.nvim_set_hl(0, "Keyword",  { fg = c.color2, bold = true })
+vim.api.nvim_set_hl(0, "Function", { fg = c.color4 })
+vim.api.nvim_set_hl(0, "String",   { fg = c.color3 })
+vim.api.nvim_set_hl(0, "Type",     { fg = c.color5 })
+vim.api.nvim_set_hl(0, "Constant", { fg = c.color6 })
+
+-- Tree-sitter
+vim.api.nvim_set_hl(0, "@comment",  { fg = c.color8, italic = true })
+vim.api.nvim_set_hl(0, "@keyword",  { fg = c.color2, bold = true })
+vim.api.nvim_set_hl(0, "@function", { fg = c.color4 })
+vim.api.nvim_set_hl(0, "@string",   { fg = c.color3 })
+vim.api.nvim_set_hl(0, "@type",     { fg = c.color5 })
 
 require("keymaps")
 require("lazy").setup("plugins")

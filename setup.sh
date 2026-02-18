@@ -21,10 +21,6 @@ yay -S sddm firefox yazi gvfs kitty neovim pipewire wireplumber pipewire-pulse p
 #setting up hyprpaper as user service
 systemctl --user enable --now hyprpaper.service
 
-#setting up tmux
-echo "installing tpm"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
 #setting up eww
 echo "installing rustup"
 yay -S rustup jq
@@ -51,6 +47,8 @@ sudo chmod -R +x ~/.config/eww/scripts
 cd ~/.config/eww/spotify
 npm install
 
+echo "moving wallpaper picker to bin directory"
+sudo mv ~/.config/WallpaperPicker /usr/bin
 
 echo "setting up sddm"
 sudo pacman -Syu qt6-svg qt6-declarative qt5-quickcontrols2

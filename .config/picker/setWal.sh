@@ -45,6 +45,11 @@ echo "creating picker config"
 data="$(head -n 1 ~/.config/picker/config.conf)\n$background"
 echo -e "$data" > ~/.config/picker/config.conf
 
+echo "modifying hyprland window border color"
+sed -i "7s/.*/\t\tcol.active_border = rgb(${foreground:1})/" ~/.config/hypr/conf/style.conf
+sed -i "8s/.*/\t\tcol.inactive_border = rgb(${background:1})/" ~/.config/hypr/conf/style.conf
+
+
 ~/eww/target/release/eww reload
 killall hyprpaper
-hyprpaper
+hyprpaper &

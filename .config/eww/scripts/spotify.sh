@@ -25,7 +25,7 @@ getSongInfo() {
             :class \"spotify-img\"
             :style \"background-image: url('${poster}');\"
       )
-      (label :text \"${name} - ${artist}\")
+      (label :text \"${name} - ${artist}\" :limit-width 50)
     )"
 }
 

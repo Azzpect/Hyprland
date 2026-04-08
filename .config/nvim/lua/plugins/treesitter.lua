@@ -16,6 +16,7 @@ return {
         'javascript',
         'json',
         'typescript',
+        'tsx',
         'css',
         'java',
         'go'

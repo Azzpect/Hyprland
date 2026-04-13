@@ -4,7 +4,7 @@ return {
   lazy = false,
   build = ':TSUpdate',
   config = function()
-    require("nvim-treesitter").setup({
+    require("nvim-treesitter.configs").setup({
       ensure_installed = {
         'bash',
         'c',
@@ -19,7 +19,8 @@ return {
         'tsx',
         'css',
         'java',
-        'go'
+        'go',
+        'svelte'
       },
       auto_install = true,
       highlight = { enable = true },

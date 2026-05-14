@@ -1,5 +1,3 @@
-eww="$HOME/eww/target/release/eww"
-
 getConStatus() {
   con=$(nmcli -t -f TYPE,STATE device | grep "$1" | awk -F ":" '{print $2}')
   for c in $con; do
@@ -33,12 +31,12 @@ wifiDisconnect() {
   $(nmcli dev disconnect $wifiName)
 }
 openWifiConnectWindow() {
-  $eww update connectingTo="$1"
-  $eww open wifiConnectWindow
+  eww update connectingTo="$1"
+  eww open wifiConnectWindow
 }
 wifiConnect() {
-  $eww close wifiConnectWindow
-  $eww update password=""
+  eww close wifiConnectWindow
+  eww update password=""
   nmcli connection delete "$1"
   nmcli dev wifi connect "$1" password "$2"
 }

@@ -1,1 +1,1 @@
-return {active_border="#96cace",inactive_border="#0F161E"}
+return {active_border="#dddbd0",inactive_border="#11120d"}

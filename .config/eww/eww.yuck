@@ -1,5 +1,3 @@
-(defvar eww "$HOME/eww/target/release/eww")
-
 (include "./widgets/audio.yuck")
 (include "./widgets/network/network.yuck")
 (include "./widgets/systray.yuck")
@@ -66,7 +64,7 @@
     (power)
     (label :class "sep" :text "|")
     (button :class "clock" 
-      :onclick "${eww} open calendar --toggle"
+      :onclick "eww open calendar --toggle"
       time
     )
   )

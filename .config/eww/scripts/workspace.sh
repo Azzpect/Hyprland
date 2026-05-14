@@ -18,7 +18,7 @@ genWorkspaceManager() {
     if [ $activeWindow -eq $i ];then
       thickness=7
     fi
-    element="(eventbox :onclick \"hyprctl dispatch workspace $i\" (box(circular-progress :value 100 :class \"circle\" :thickness $thickness)))"
+    element="(eventbox :onclick \"hyprctl dispatch 'hl.dsp.focus({workspace=$i})'\" (box(circular-progress :value 100 :class \"circle\" :thickness $thickness)))"
     literal+=$element
     ((i++))
   done

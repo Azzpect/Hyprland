@@ -1,6 +1,6 @@
 (defwidget power []
   (button
-    :onclick "${eww} open power_popup --toggle"
+    :onclick "eww open power_popup --toggle"
     (label 
       :class "power-window-icon"
       :text "⏻"
@@ -23,7 +23,7 @@
 
 (defwidget power_popup_items []
   (eventbox
-    :onhoverlost "${eww} open power_popup --toggle"
+    :onhoverlost "eww open power_popup --toggle"
     (box
       :orientation "horizontal"
       :space-evenly true 

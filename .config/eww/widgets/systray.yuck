@@ -1,7 +1,7 @@
 (defvar arrow "⏶")
 (defwidget trayicon []
   (eventbox
-    :onclick "${eww} ${arrow == "⏷" ? "update arrow=⏶;${eww} close tray" : "update arrow=⏷;${eww} open tray"}"
+    :onclick "eww ${arrow == "⏷" ? "update arrow=⏶;eww close tray" : "update arrow=⏷;eww open tray"}"
     (label :class "tray-icon" :text arrow)
   )
 )

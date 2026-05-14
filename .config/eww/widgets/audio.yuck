@@ -1,7 +1,7 @@
 (defwidget audio []
   (button
     :class "audio-btn"
-    :onclick "${eww} open audio_popup --toggle"
+    :onclick "eww open audio_popup --toggle"
     (label 
       :class "audio-window-icon"
       :text "♩"
@@ -31,7 +31,7 @@
 
 (defwidget audio_popup_items []
   (eventbox
-    :onhoverlost "${eww} open audio_popup --toggle"
+    :onhoverlost "eww open audio_popup --toggle"
     (box
       :orientation "vertical"
       :space-evenly false

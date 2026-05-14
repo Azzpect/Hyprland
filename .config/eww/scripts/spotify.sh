@@ -1,5 +1,3 @@
-eww="$HOME/eww/target/release/eww"
-
 getSongInfo() {
   info=$(curl -s "http://localhost:3000/now-playing")
   poster=$(echo "$info" | jq -r '.poster')
@@ -17,7 +15,7 @@ getSongInfo() {
     isPlaying="false"
   fi
 
-  $eww update isPlaying=$isPlaying
+  eww update isPlaying=$isPlaying
 
   echo "(box
       :space-evenly false

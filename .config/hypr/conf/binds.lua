@@ -11,6 +11,7 @@ hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(terminal .. " -e zsh -lic " .. fileManager))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(screenshot))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(wallpaper))
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(terminal .. " -e zsh -lic cava"))
 
 -- behavior
 hl.bind(mainMod .. " + C", hl.dsp.window.close())

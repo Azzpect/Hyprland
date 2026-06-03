@@ -4,7 +4,7 @@
     :onclick "eww open audio_popup --toggle"
     (label 
       :class "audio-window-icon"
-      :text "♩"
+      :text "♬"
     )
   )
 )

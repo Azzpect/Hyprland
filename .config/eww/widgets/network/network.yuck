@@ -26,7 +26,7 @@
       (box
         :space-evenly false
         :spacing 5
-        (label :text {ethStatus == "connected"? " " : wifiStatus == "connected" ? " " : " ⃠ "}) 
+        (label :class "network-logo" :text {ethStatus == "connected"? "🖧" : wifiStatus == "connected" ? " " : " ⃠ "}) 
         (revealer
           :transition "slideleft"
           :reveal showCon

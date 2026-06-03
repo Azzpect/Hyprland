@@ -45,7 +45,6 @@
   "(box
     :class \"workspace\"
     :space-evenly false
-    (label :class \"logo\" :text \" \")
     ${workspaceManagerLiteral}
   )"
   )

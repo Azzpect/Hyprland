@@ -34,7 +34,7 @@
       )
       (button
         :onclick "reboot"
-        (label :class "restart-btn" :text "✖")
+        (label :class "restart-btn" :text "♻")
       )
     )
   )

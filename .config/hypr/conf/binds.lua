@@ -2,7 +2,7 @@ local terminal = "kitty"
 local fileManager = "yazi"
 local mainMod = "SUPER"
 local menu = "rofi -show drun"
-local screenshot = "grim -g $(slurp)"
+local screenshot = "grim -g \"$(slurp)\" ~/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png"
 local wallpaper = "WallpaperPicker"
 
 -- application keybinds

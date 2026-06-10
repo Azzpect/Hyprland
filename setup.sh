@@ -36,8 +36,10 @@ sudo mv ~/eww/target/release/eww /usr/bin
 rm -rf ~/eww
 
 
+# setting up hyprland
 cd ~/Hyprland
 stow . --adopt
+mkdir -p ~/Pictures/Screenshots
 
 #setting yazi desktop file
 echo "setting yazi desktop file"

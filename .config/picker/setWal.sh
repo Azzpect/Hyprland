@@ -5,14 +5,10 @@ echo "file path: $file_path"
 if [ "$file_path" = "" ]; then
   exit 1
 fi
-conf=~/.config/hypr/hyprpaper.conf
 
 echo "generating color schemas"
 wal -i "$file_path"
 
-
-echo -e "wallpaper{\n\tmonitor=\n\tpath=$file_path\n\tfit_mode=cover\n}" > "$conf"
-echo "wallpaper=$file_path"
 
 if [ ! -e "~/.config/rofi/colors.rasi" ]; then
   touch ~/.config/rofi/colors.rasi
@@ -46,10 +42,11 @@ data="$(head -n 1 ~/.config/picker/config.conf)\n$background"
 echo -e "$data" > ~/.config/picker/config.conf
 
 echo "modifying hyprland window border color"
-#sed -i "7s/.*/\t\tcol.active_border = rgb(${foreground:1})/" ~/.config/hypr/conf/style.conf
-#sed -i "8s/.*/\t\tcol.inactive_border = rgb(${background:1})/" ~/.config/hypr/conf/style.conf
 echo "return {active_border=\"$foreground\",inactive_border=\"$background\"}" > ~/.config/hypr/conf/colors.lua
 
+
+#changing wallpaper with swww
+awww img $file_path --transition-type any --transition-fps 60 --transition-step 255
 
 
 hyprctl reload

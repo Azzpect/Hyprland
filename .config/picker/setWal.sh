@@ -6,6 +6,10 @@ if [ "$file_path" = "" ]; then
   exit 1
 fi
 
+#changing wallpaper with swww
+awww img $file_path --transition-type any --transition-fps 60 --transition-step 255
+
+
 echo "generating color schemas"
 wal -i "$file_path"
 
@@ -43,10 +47,5 @@ echo -e "$data" > ~/.config/picker/config.conf
 
 echo "modifying hyprland window border color"
 echo "return {active_border=\"$foreground\",inactive_border=\"$background\"}" > ~/.config/hypr/conf/colors.lua
-
-
-#changing wallpaper with swww
-awww img $file_path --transition-type any --transition-fps 60 --transition-step 255
-
 
 hyprctl reload
